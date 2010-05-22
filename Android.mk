@@ -12,7 +12,7 @@ include $(BUILD_STATIC_LIBRARY)
 
 
 SUBMAKE := make -s -C $(LOCAL_PATH) CC=$(CC)
-KERNEL_MODULES_DIR?=/system/modules/lib/modules
+KERNEL_MODULES_DIR?=/system/lib/modules
 
 BUSYBOX_SRC_FILES = $(shell cat $(LOCAL_PATH)/busybox-$(BUSYBOX_CONFIG).sources) \
 	libbb/android.c
