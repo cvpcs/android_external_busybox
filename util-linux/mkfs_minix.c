@@ -64,6 +64,8 @@
  */
 
 #include "libbb.h"
+#include <sys/cdefs.h>
+#include <stdio.h>
 #include <mntent.h>
 
 #include "minix.h"

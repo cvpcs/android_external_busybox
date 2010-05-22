@@ -7,6 +7,8 @@
  * Licensed under GPLv2 or later, see file LICENSE in this tarball for details.
  */
 
+#include <sys/cdefs.h>
+#include <stdio.h>
 #include <mntent.h>
 #include "libbb.h"
 

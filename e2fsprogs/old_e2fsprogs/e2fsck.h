@@ -20,6 +20,7 @@
 #include <sys/mount.h>
 #include <sys/ioctl.h>
 #include <termios.h>
+#include <sys/cdefs.h>
 #include <mntent.h>
 #include <dirent.h>
 #include "ext2fs/kernel-list.h"

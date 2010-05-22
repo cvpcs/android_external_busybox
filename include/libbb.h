@@ -65,6 +65,7 @@
 #endif
 
 #ifdef HAVE_MNTENT_H
+#include <sys/cdefs.h>
 #include <mntent.h>
 #endif
 

@@ -23,6 +23,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <sys/cdefs.h>
 #include <mntent.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>

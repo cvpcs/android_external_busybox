@@ -7,6 +7,8 @@
  *
  * Licensed under GPL version 2, see file LICENSE in this tarball for details.
  */
+#include <sys/cdefs.h>
+#include <stdio.h>
 #include <mntent.h>
 #include <sys/mount.h>
 /* Make sure we have all the new mount flags we actually try to use. */

@@ -87,6 +87,8 @@
  * enforced (but it's not much fun on a character device :-).
  */
 
+#include <sys/cdefs.h>
+#include <stdio.h>
 #include <mntent.h>
 #include "libbb.h"
 #include "minix.h"

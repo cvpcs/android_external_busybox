@@ -22,6 +22,8 @@
  * Implement -P and -B; better coreutils compat; cleanup
  */
 
+#include <sys/cdefs.h>
+#include <stdio.h>
 #include <mntent.h>
 #include <sys/vfs.h>
 #include "libbb.h"

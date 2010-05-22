@@ -22,6 +22,7 @@
 #include <linux/fd.h>
 #endif
 #ifdef HAVE_MNTENT_H
+#include <sys/cdefs.h>
 #include <mntent.h>
 #endif
 #ifdef HAVE_GETMNTINFO

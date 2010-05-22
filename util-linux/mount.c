@@ -16,6 +16,8 @@
 // singlemount() can loop through /etc/filesystems for fstype detection.
 // mount_it_now() does the actual mount.
 //
+#include <sys/cdefs.h>
+#include <stdio.h>
 #include <mntent.h>
 #include <syslog.h>
 #include <sys/mount.h>

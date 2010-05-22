@@ -42,7 +42,7 @@ LOCAL_C_INCLUDES := $(BUSYBOX_C_INCLUDES)
 LOCAL_CFLAGS := $(BUSYBOX_CFLAGS)
 LOCAL_MODULE := busybox
 LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
-LOCAL_STATIC_LIBRARIES += libclearsilverregex
+LOCAL_STATIC_LIBRARIES += libclearsilverregex libc-ext
 include $(BUILD_EXECUTABLE)
 
 BUSYBOX_LINKS := $(shell cat $(LOCAL_PATH)/busybox-$(BUSYBOX_CONFIG).links)
@@ -74,5 +74,5 @@ LOCAL_CFLAGS += \
   -Dgetmntent=busybox_getmntent \
   -Dgetmntent_r=busybox_getmntent_r
 LOCAL_MODULE := libbusybox
-LOCAL_STATIC_LIBRARIES += libclearsilverregex libcutils libc libm 
+LOCAL_STATIC_LIBRARIES += libclearsilverregex libcutils libc libm libc-ext
 include $(BUILD_STATIC_LIBRARY)
