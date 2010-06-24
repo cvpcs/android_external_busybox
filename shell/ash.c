@@ -3622,7 +3622,7 @@ setjobctl(int on)
 			}
 			if (pgrp == getpgrp())
 				break;
-			killpg(0, SIGTTIN);
+			killpg_busybox(0, SIGTTIN);
 		} while (1);
 		initialpgrp = pgrp;
 
@@ -12477,8 +12477,6 @@ letcmd(int argc UNUSED_PARAM, char **argv)
 
 #if defined(__GLIBC__) && __GLIBC__ == 2 && __GLIBC_MINOR__ < 1
 typedef enum __rlimit_resource rlim_t;
-#elif defined(__BIONIC__)
-typedef unsigned long rlim_t;
 #endif
 
 /*
