@@ -3764,7 +3764,7 @@ sprint_status(char *s, int status, int sigonly)
 #endif
 		}
 		st &= 0x7f;
-		col = fmtstr(s, 32, strsignal(st));
+		col = fmtstr(s, 32, "%s", strsignal(st));
 		if (WCOREDUMP(status)) {
 			col += fmtstr(s + col, 16, " (core dumped)");
 		}

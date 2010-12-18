@@ -615,7 +615,7 @@ static void display(priv_dumper_t* dumper)
 							printf(pr->fmt, (char *) bp);
 							break;
 						case F_TEXT:
-							printf(pr->fmt);
+							printf("%s", pr->fmt);
 							break;
 						case F_U:
 							conv_u(pr, bp);
@@ -665,7 +665,7 @@ static void display(priv_dumper_t* dumper)
 				printf(pr->fmt, (unsigned) dumper->eaddress);
 				break;
 			case F_TEXT:
-				printf(pr->fmt);
+				printf("%s", pr->fmt);
 				break;
 			}
 		}

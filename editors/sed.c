@@ -843,7 +843,7 @@ static void puts_maybe_newline(char *s, FILE *file, char *last_puts_char, char l
 
 	if (ferror(file)) {
 		xfunc_error_retval = 4;  /* It's what gnu sed exits with... */
-		bb_error_msg_and_die(bb_msg_write_error);
+		bb_error_msg_and_die("%s", bb_msg_write_error);
 	}
 	*last_puts_char = lpc;
 }

@@ -53,14 +53,14 @@ static off_t bb_full_fd_action(int src_fd, int dst_fd, off_t size)
 			break;
 		}
 		if (rd < 0) {
-			bb_perror_msg(bb_msg_read_error);
+			bb_perror_msg("%s", bb_msg_read_error);
 			break;
 		}
 		/* dst_fd == -1 is a fake, else... */
 		if (dst_fd >= 0) {
 			ssize_t wr = full_write(dst_fd, buffer, rd);
 			if (wr < rd) {
-				bb_perror_msg(bb_msg_write_error);
+				bb_perror_msg("%s", bb_msg_write_error);
 				break;
 			}
 		}

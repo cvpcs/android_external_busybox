@@ -475,7 +475,7 @@ static int mount_it_now(struct mntent *mp, long vfsflags, char *filteropts)
 	// Abort entirely if permission denied.
 
 	if (rc && errno == EPERM)
-		bb_error_msg_and_die(bb_msg_perm_denied_are_you_root);
+		bb_error_msg_and_die("%s", bb_msg_perm_denied_are_you_root);
 
 	// If the mount was successful, and we're maintaining an old-style
 	// mtab file by hand, add the new entry to it now.
@@ -1700,7 +1700,7 @@ static int singlemount(struct mntent *mp, int ignore_busy)
 			mp->mnt_fsname = NULL; // will receive malloced loop dev name
 			if (set_loop(&mp->mnt_fsname, loopFile, 0) < 0) {
 				if (errno == EPERM || errno == EACCES)
-					bb_error_msg(bb_msg_perm_denied_are_you_root);
+					bb_error_msg("%s", bb_msg_perm_denied_are_you_root);
 				else
 					bb_perror_msg("can't setup loop device");
 				return errno;
@@ -1884,7 +1884,7 @@ int mount_main(int argc UNUSED_PARAM, char **argv)
 		// argument when we get it.
 		if (argv[1]) {
 			if (nonroot)
-				bb_error_msg_and_die(bb_msg_you_must_be_root);
+				bb_error_msg_and_die("%s", bb_msg_you_must_be_root);
 			mtpair->mnt_fsname = argv[0];
 			mtpair->mnt_dir = argv[1];
 			mtpair->mnt_type = fstype;
@@ -1901,7 +1901,7 @@ int mount_main(int argc UNUSED_PARAM, char **argv)
 
 	i = parse_mount_options(cmdopts, NULL); // FIXME: should be "long", not "int"
 	if (nonroot && (i & ~MS_SILENT)) // Non-root users cannot specify flags
-		bb_error_msg_and_die(bb_msg_you_must_be_root);
+		bb_error_msg_and_die("%s", bb_msg_you_must_be_root);
 
 	// If we have a shared subtree flag, don't worry about fstab or mtab.
 	if (ENABLE_FEATURE_MOUNT_FLAGS
@@ -1964,7 +1964,7 @@ int mount_main(int argc UNUSED_PARAM, char **argv)
 			// No, mount -a won't mount anything,
 			// even user mounts, for mere humans
 			if (nonroot)
-				bb_error_msg_and_die(bb_msg_you_must_be_root);
+				bb_error_msg_and_die("%s", bb_msg_you_must_be_root);
 
 			// Does type match? (NULL matches always)
 			if (!match_fstype(mtcur, fstype))
@@ -2044,7 +2044,7 @@ int mount_main(int argc UNUSED_PARAM, char **argv)
 			// fstab must have "users" or "user"
 			l = parse_mount_options(mtcur->mnt_opts, NULL);
 			if (!(l & MOUNT_USERS))
-				bb_error_msg_and_die(bb_msg_you_must_be_root);
+				bb_error_msg_and_die("%s", bb_msg_you_must_be_root);
 		}
 
 		//util-linux-2.12 does not do this check.

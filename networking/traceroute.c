@@ -836,7 +836,7 @@ common_traceroute_main(int op, char **argv)
 		 * probe (e.g., on a multi-homed host).
 		 */
 		if (getuid() != 0)
-			bb_error_msg_and_die(bb_msg_you_must_be_root);
+			bb_error_msg_and_die("%s", bb_msg_you_must_be_root);
 	}
 	if (op & OPT_WAITTIME)
 		waittime = xatou_range(waittime_str, 1, 24 * 60 * 60);

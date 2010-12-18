@@ -355,7 +355,7 @@ static void sendping_tail(void (*sp)(int), const void *pkt, int size_pkt)
 	 * it doesn't matter */
 	sz = xsendto(pingsock, pkt, size_pkt, &pingaddr.sa, sizeof(pingaddr));
 	if (sz != size_pkt)
-		bb_error_msg_and_die(bb_msg_write_error);
+		bb_error_msg_and_die("%s", bb_msg_write_error);
 
 	if (pingcount == 0 || deadline || ntransmitted < pingcount) {
 		/* Didn't send all pings yet - schedule next in 1s */
