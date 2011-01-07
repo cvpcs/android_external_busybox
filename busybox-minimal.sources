@@ -26,3 +26,4 @@ shell/ash.c shell/ash_ptr_hack.c shell/builtin_read.c shell/math.c shell/random.
 
 util-linux/dmesg.c util-linux/fdisk.c util-linux/freeramdisk.c util-linux/getopt.c util-linux/hexdump.c util-linux/losetup.c util-linux/lspci.c util-linux/lsusb.c util-linux/mkfs_ext2.c util-linux/mkswap.c util-linux/more.c util-linux/mount.c util-linux/rdev.c util-linux/swaponoff.c util-linux/tune2fs.c util-linux/umount.c
 
+util-linux/volume_id/get_devname.c util-linux/volume_id/volume_id.c util-linux/volume_id/util.c util-linux/volume_id/ext.c
