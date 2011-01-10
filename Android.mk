@@ -86,7 +86,32 @@ LOCAL_CFLAGS += \
   -Dendusershell=busybox_endusershell \
   -Dttyname_r=busybox_ttyname_r \
   -Dgetmntent=busybox_getmntent \
-  -Dgetmntent_r=busybox_getmntent_r
+  -Dgetmntent_r=busybox_getmntent_r \
+  -Dgenerate_uuid=busybox_generate_uuid
 LOCAL_MODULE := libbusybox
 LOCAL_STATIC_LIBRARIES += libclearsilverregex libcutils libc libm
 include $(BUILD_STATIC_LIBRARY)
+
+# Build a static busybox for the recovery image
+include $(CLEAR_VARS)
+BUSYBOX_CONFIG:=minimal
+LOCAL_SRC_FILES := $(BUSYBOX_SRC_FILES)
+LOCAL_C_INCLUDES := $(BUSYBOX_C_INCLUDES)
+LOCAL_CFLAGS := $(BUSYBOX_CFLAGS)
+LOCAL_CFLAGS += \
+  -Dgetusershell=busybox_getusershell \
+  -Dsetusershell=busybox_setusershell \
+  -Dendusershell=busybox_endusershell \
+  -Dttyname_r=busybox_ttyname_r \
+  -Dgetmntent=busybox_getmntent \
+  -Dgetmntent_r=busybox_getmntent_r \
+  -Dgenerate_uuid=busybox_generate_uuid
+LOCAL_FORCE_STATIC_EXECUTABLE := true
+LOCAL_MODULE := utility_busybox
+LOCAL_MODULE_TAGS := eng
+LOCAL_STATIC_LIBRARIES += libclearsilverregex libcutils libc libm 
+LOCAL_MODULE_CLASS := UTILITY_EXECUTABLES
+LOCAL_MODULE_PATH := $(PRODUCT_OUT)/utilities
+LOCAL_UNSTRIPPED_PATH := $(PRODUCT_OUT)/symbols/utilities
+LOCAL_MODULE_STEM := busybox
+include $(BUILD_EXECUTABLE)

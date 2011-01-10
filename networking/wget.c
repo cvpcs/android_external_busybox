@@ -472,7 +472,7 @@ static void NOINLINE retrieve_file_data(FILE *dfp, int output_fd)
 			if (n <= 0) {
 				if (ferror(dfp)) {
 					/* perror will not work: ferror doesn't set errno */
-					bb_error_msg_and_die(bb_msg_read_error);
+					bb_error_msg_and_die("%s", bb_msg_read_error);
 				}
 				break;
 			}

@@ -59,7 +59,7 @@ static ssize_t tail_read(int fd, char *buf, size_t count)
 
 	r = full_read(fd, buf, count);
 	if (r < 0) {
-		bb_perror_msg(bb_msg_read_error);
+		bb_perror_msg("%s", bb_msg_read_error);
 		G.status = EXIT_FAILURE;
 	}
 

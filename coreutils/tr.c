@@ -278,7 +278,7 @@ int tr_main(int argc UNUSED_PARAM, char **argv)
 			read_chars = safe_read(STDIN_FILENO, str1, TR_BUFSIZ);
 			if (read_chars <= 0) {
 				if (read_chars < 0)
-					bb_perror_msg_and_die(bb_msg_read_error);
+					bb_perror_msg_and_die("%s", bb_msg_read_error);
 				break;
 			}
 			in_index = 0;
