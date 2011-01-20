@@ -5,6 +5,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := ../clearsilver/util/regex/regex.c
 LOCAL_MODULE := libclearsilverregex
+LOCAL_MODULE_TAGS := eng
 LOCAL_C_INCLUDES := \
 	external/clearsilver \
 	external/clearsilver/util/regex
@@ -51,6 +52,7 @@ LOCAL_SRC_FILES := $(BUSYBOX_SRC_FILES)
 LOCAL_C_INCLUDES := $(BUSYBOX_C_INCLUDES)
 LOCAL_CFLAGS := $(BUSYBOX_CFLAGS)
 LOCAL_MODULE := busybox
+LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE_PATH := $(TARGET_OUT_OPTIONAL_EXECUTABLES)
 LOCAL_STATIC_LIBRARIES += libclearsilverregex
 include $(BUILD_EXECUTABLE)
@@ -89,6 +91,7 @@ LOCAL_CFLAGS += \
   -Dgetmntent_r=busybox_getmntent_r \
   -Dgenerate_uuid=busybox_generate_uuid
 LOCAL_MODULE := libbusybox
+LOCAL_MODULE_TAGS := eng
 LOCAL_STATIC_LIBRARIES += libclearsilverregex libcutils libc libm
 include $(BUILD_STATIC_LIBRARY)
 
